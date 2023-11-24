@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Bootstrap demo</title>
+
+        <script src="./Marked.js"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="./styles-1.css" >
+
+        <script>
+            
+            function updatePreview() {
+                document.getElementById("preview").innerHTML = marked(document.getElementById("editor").value)
+            }
+
+            function defaultInfo() {
+
+                let initialEditorValue = `\
+# This is a Markdown Header.
+**------------------------------------------------------------------------------------------------------------**
+## And this is a Markdown Sub Header...
+---
+Press this is [Link](https://www.freecodecamp.org/)
+
+Here is an inline code with a div tag \`<div></div>\` as an example . 
+
+##### Cool Right :)
+
+##### There is still more to go!!
+
+You can **BOLD** text.. damnnn!!
+
+OR make it *italic*
+
+OR even ~~cross things out~~
+
+guess what, you can even <mark>highlight things</mark>
+
+\`\`\`
+\\This is a block of code.
+<div>
+    <p>I didn't even know you could do that!</p>
+</div>
+\`\`\`
+
+###### My to-do list: (indented version)
+
+- Learn how to use Markdown
+    - Complete the next certification task
+        - Earn a billion dollars
+
+###### My to-do list: (numbered version)
+
+1. Learn how to use Markdown
+2. Complete the next certification task
+3. Earn a billion dollars
+
+> The great me once said, Markdown is better than CSS!! Facts ~ Me, Myself and I.
+
+##### High Five if you stayed with me till here.
+
+![High Five](https://content.codecademy.com/courses/learn-cpp/community-challenge/highfive.gif)
+
+#### **Thank You**, highly appreciate it!!
+
+## Bye!!`
+
+                marked.setOptions({
+                    breaks: true
+                })
+
+                document.getElementById("editor").value = initialEditorValue
+                document.getElementById("preview").innerHTML = marked(initialEditorValue)
+            }
+
+        </script>
+
+    </head>
+
+    <body onload="defaultInfo()" style="background-color: #8FCAC6;">
+        <div class="container">
+            <div class="editor-block">
+                <div class="block-header">Editor</div>
+                <div class="inner-block">
+                    <textarea id="editor" onkeyup="updatePreview()"></textarea>
+                </div>
+            </div>
+            <div class="preview-block">
+                <div class="block-header">Preview</div>
+                <div id="preview"></div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    </body>
+</html>
